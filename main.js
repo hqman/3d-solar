@@ -208,7 +208,7 @@ function createOrbitLine(radius) {
 
 	orbitGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 	const orbit = new THREE.Line(orbitGeometry, orbitMaterial);
-	orbit.rotation.x = Math.PI / 2;
+	// 轨道不需要旋转，因为我们已经在正确的平面上创建了它
 	return orbit;
 }
 
@@ -255,9 +255,6 @@ solarSystemObjects.forEach(obj => {
 		mesh = new THREE.Mesh(geometry, material);
 	}
 
-	// Set initial position
-	mesh.position.set(obj.position.x, obj.position.y, obj.position.z);
-
 	// Create an orbital group that will handle the rotation around parent
 	const orbitGroup = new THREE.Group();
 
@@ -277,6 +274,19 @@ solarSystemObjects.forEach(obj => {
 				parent: obj.parent
 			});
 		}
+	}
+
+	// 正确设置初始位置
+	// 如果不是太阳或土星环，使用轨道半径和随机角度来计算初始位置
+	if (obj.orbitRadius > 0 && obj.name !== 'Saturn Ring') {
+		// 设置行星在轨道上的初始角度（随机或特定值）
+		const initialAngle = Math.random() * Math.PI * 2;
+		const x = obj.orbitRadius * Math.cos(initialAngle);
+		const z = obj.orbitRadius * Math.sin(initialAngle);
+		mesh.position.set(x, 0, z);
+	} else {
+		// 太阳或土星环保持在原点
+		mesh.position.set(obj.position.x, obj.position.y, obj.position.z);
 	}
 
 	orbitGroup.add(mesh);
