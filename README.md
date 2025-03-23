@@ -1,41 +1,41 @@
 # 3D Solar System Simulator
 
-这是一个使用 Three.js 构建的交互式 3D 太阳系模拟器。
+This is an interactive 3D solar system simulator built with Three.js.
 
-## 功能
+## Features
 
-- 真实的太阳系模型，包括太阳、八大行星和月球
-- 行星按照相对比例大小创建（轨道距离非真实比例）
-- 行星自转和绕轨道运动
-- 互动控制：拖动旋转视角，滚轮缩放
-- 精美的空间背景和星星
+- Realistic solar system model, including the sun, eight planets, and the moon
+- Planets created according to relative size proportions (orbital distances not to scale)
+- Planet rotation and orbital movement
+- Interactive controls: drag to rotate view, scroll wheel to zoom
+- Beautiful space background and stars
 
-## 技术栈
+## Tech Stack
 
 - HTML5
 - CSS3
 - JavaScript
-- Three.js（最新版本，通过 CDN 加载）
+- Three.js (latest version, loaded via CDN)
 
-## 运行项目
+## Running the Project
 
-使用任意 HTTP 服务器运行项目。例如：
+Use any HTTP server to run the project. For example:
 
 ```bash
-# 如果使用 Python
+# If using Python
 python3 -m http.server 8080
 
-# 如果安装了 Node.js
+# If Node.js is installed
 npx serve
 ```
 
-然后在浏览器中访问 `http://localhost:8080`。
+Then visit `http://localhost:8080` in your browser.
 
-## 浏览器兼容性
+## Browser Compatibility
 
-该项目适用于所有支持现代 JavaScript 和 WebGL 的浏览器。
+This project works in all browsers that support modern JavaScript and WebGL.
 
-## 资源
+## Resources
 
-- 所有行星纹理均来自 Three.js 官方示例资源
-- 行星的相对大小基于真实数据，但轨道距离为了美观性已经进行了调整 # 3d-solar
+- All planet textures are from Three.js official example resources
+- The relative sizes of the planets are based on real data, but the orbital distances have been adjusted for aesthetic purposes
